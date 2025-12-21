@@ -2,6 +2,6 @@ package tasks
 
 import "net/http"
 
-func List(w http.ResponseWriter, r *http.Request) {
+func (h *TaskHandler) List(w http.ResponseWriter, r *http.Request) {
 
 }
