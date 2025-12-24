@@ -19,9 +19,16 @@ func NewPublisher(client Client) *Publisher {
 }
 
 func (p *Publisher) Publish(ctx context.Context, t task.Task) error {
-	data, err := json.Marshal(t)
+	msg := task.TaskMessage{
+		ID:      t.ID,
+		Type:    t.Type,
+		Payload: t.Payload,
+	}
+
+	data, err := json.Marshal(msg)
 	if err != nil {
 		return err
 	}
+
 	return p.client.Enqueue(ctx, data)
 }

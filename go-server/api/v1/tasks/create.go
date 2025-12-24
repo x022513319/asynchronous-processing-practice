@@ -2,7 +2,9 @@ package tasks
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/x022513319/asynchronous-processing-practice/api/task"
@@ -17,6 +19,7 @@ func (h *TaskHandler) Create(w http.ResponseWriter, r *http.Request) {
 
 	t.ID = uuid.NewString()
 	t.Status = task.StatusPending
+	t.CreatedAt = time.Now().UTC()
 
 	/*
 		API 層 → 傳結構化的 Task
@@ -26,4 +29,6 @@ func (h *TaskHandler) Create(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+
+	log.Println("task enqueued: " + t.ID)
 }
