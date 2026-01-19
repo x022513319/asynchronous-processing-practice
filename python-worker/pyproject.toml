@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asynchronous-processing-practice"
+version = "0.1.0"
+description = "關於非同步處理的實作練習"
+authors = [
+    {name = "S.H. Huang"}
+]
+requires-python = ">= 3.10"
+license = {text = "MIT"}
+
+dependencies = [
+    "requests>=2.28.0",
+    "redis>=7.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.0",    
+]

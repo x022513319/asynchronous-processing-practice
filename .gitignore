@@ -1,0 +1,25 @@
+# --- IDE / System ---
+.vscode/
+.idea/
+.DS_Store
+*.log
+
+# --- Go server ---
+go-server/bin/
+go-server/vendor/
+*.exe
+*.test
+
+# --- Python worker ---
+# 忽略 Python 快取
+__pycache__/
+*.py[cod]
+# 忽略 uv 的虛擬環境
+.venv/
+# 忽略打包中間產物
+python-worker/src/*.egg-info/
+python-worker/dist/
+python-worker/build/
+
+# --- Tools ---
+.env
