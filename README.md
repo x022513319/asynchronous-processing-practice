@@ -70,5 +70,3 @@ handlers (create.go, get.go, ...)
   ↓
 queue / worker / task
 ```
-
-
